@@ -26,6 +26,7 @@ export class DebugPane {
     sel.addButton({ title: '① Plasma' })    .on('click', () => onSelect('plasma'))
     sel.addButton({ title: '② Particles' }) .on('click', () => onSelect('particles'))
     sel.addButton({ title: '③ Raymarching' }).on('click', () => onSelect('raymarching'))
+    sel.addButton({ title: '④ Chladni' })   .on('click', () => onSelect('chladni'))
 
     // ── MIDI monitor ─────────────────────────────────────────────────────────
     const midi = this.pane.addFolder({ title: 'MIDI', expanded: true })

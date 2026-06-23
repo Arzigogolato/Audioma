@@ -9,16 +9,19 @@ import { NeonCube } from './visuals/NeonCube'
 import { PlasmaField } from './visuals/PlasmaField'
 import { ParticleField } from './visuals/ParticleField'
 import { Raymarcher }    from './visuals/Raymarcher'
+import { Chladni }       from './visuals/Chladni'
 import type { PresetConfig } from './presets/types'
 import plasmaCfg       from './presets/song1.json'
 import particlesCfg    from './presets/visual-particles.json'
 import raymarchingCfg  from './presets/visual-raymarching.json'
+import chladniCfg      from './presets/visual-chladni.json'
 
 // ── register visual types ─────────────────────────────────────────────────────
 registerVisual('NeonCube',      NeonCube)
 registerVisual('PlasmaField',   PlasmaField)
 registerVisual('ParticleField', ParticleField)
 registerVisual('Raymarcher',    Raymarcher)
+registerVisual('Chladni',       Chladni)
 
 // ── bootstrap ─────────────────────────────────────────────────────────────────
 const renderer = new Renderer()
@@ -89,6 +92,25 @@ function loadVisual(type: string): void {
         glow:       { min: 0,   max: 3,   step: 0.01 },
         repeat:     { min: 0,   max: 2,   step: 0.01 },
         zoom:       { min: 0.5, max: 2.5, step: 0.01 },
+      },
+    )
+  }
+
+  if (type === 'chladni') {
+    presets.load(chladniCfg as PresetConfig)
+    const layer = presets.getLayer('chladni') as Chladni
+    paramsFolder = debug.addVisualParams(
+      'Chladni',
+      layer.params as unknown as Record<string, unknown>,
+      {
+        speed:      { min: 0,   max: 1.5, step: 0.01 },
+        modeX:      { min: 1,   max: 9,   step: 0.1  },
+        modeY:      { min: 1,   max: 9,   step: 0.1  },
+        sharpness:  { min: 0.1, max: 2.5, step: 0.01 },
+        symmetry:   { min: 0,   max: 1,   step: 0.01 },
+        phase:      { min: 0,   max: 1,   step: 0.01 },
+        colorShift: { min: 0,   max: 1,   step: 0.01 },
+        palette:    { min: 0,   max: 1,   step: 0.01 },
       },
     )
   }
