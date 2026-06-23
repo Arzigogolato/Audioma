@@ -69,7 +69,16 @@ export class DebugPane {
       if (exclude.includes(key)) continue
       const val = params[key]
       if (typeof val === 'number') {
-        folder.addInput(params, key, ranges[key] ?? { min: -5, max: 5, step: 0.01 })
+        const r    = ranges[key]
+        const step = r?.step ?? 0.01
+        if (r?.min !== undefined && r?.max !== undefined) {
+          // Slider for quick live sweep
+          folder.addInput(params, key, { min: r.min, max: r.max, step, label: key })
+          // Free number field below — same key, no clamping, for values beyond range
+          folder.addInput(params, key, { step, label: '  ↳ exact' })
+        } else {
+          folder.addInput(params, key, { step })
+        }
       } else if (typeof val === 'string' && val.startsWith('#')) {
         folder.addInput(params, key)
       }
