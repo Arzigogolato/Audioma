@@ -1,0 +1,30 @@
+{
+  "id": "visual-particles",
+  "name": "Particle Field",
+  "layers": [
+    {
+      "id": "particles",
+      "type": "ParticleField",
+      "trigger": { "source": "clock", "division": 1 },
+      "params": {
+        "count":         40000,
+        "speed":         0.6,
+        "fieldStrength": 1.0,
+        "spread":        2.0,
+        "lifespan":      3.5,
+        "size":          1.0,
+        "colorShift":    0.0,
+        "palette":       0.0
+      },
+      "midiBindings": [
+        { "cc": 16, "param": "speed",         "min": 0,   "max": 3   },
+        { "cc": 17, "param": "fieldStrength",  "min": 0,   "max": 3   },
+        { "cc": 18, "param": "colorShift",     "min": 0,   "max": 1   },
+        { "cc": 19, "param": "palette",        "min": 0,   "max": 1   },
+        { "cc": 0,  "param": "spread",         "min": 0.3, "max": 5   },
+        { "cc": 1,  "param": "size",           "min": 0.3, "max": 4   },
+        { "cc": 2,  "param": "lifespan",       "min": 0.5, "max": 8   }
+      ]
+    }
+  ]
+}

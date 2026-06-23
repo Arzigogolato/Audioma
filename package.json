@@ -1,0 +1,23 @@
+{
+  "name": "audioma",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "bridge": "cd bridge && node --loader ts-node/esm server.ts"
+  },
+  "dependencies": {
+    "@tweakpane/core": "^2.0.5",
+    "gsap": "^3.12.5",
+    "three": "^0.176.0",
+    "tweakpane": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/three": "^0.176.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-glsl": "^1.3.1"
+  }
+}

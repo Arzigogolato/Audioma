@@ -1,0 +1,29 @@
+{
+  "id": "visual-raymarching",
+  "name": "Raymarcher",
+  "layers": [
+    {
+      "id": "raymarching",
+      "type": "Raymarcher",
+      "trigger": { "source": "clock", "division": 1 },
+      "params": {
+        "speed":      0.4,
+        "morph":      0.0,
+        "colorShift": 0.0,
+        "palette":    0.0,
+        "glow":       1.0,
+        "repeat":     0.0,
+        "zoom":       1.0
+      },
+      "midiBindings": [
+        { "cc": 16, "param": "speed",      "min": 0,   "max": 2   },
+        { "cc": 17, "param": "morph",      "min": 0,   "max": 1   },
+        { "cc": 18, "param": "colorShift", "min": 0,   "max": 1   },
+        { "cc": 19, "param": "palette",    "min": 0,   "max": 1   },
+        { "cc": 0,  "param": "zoom",       "min": 0.5, "max": 2.5 },
+        { "cc": 1,  "param": "glow",       "min": 0,   "max": 3   },
+        { "cc": 2,  "param": "repeat",     "min": 0,   "max": 2   }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "example-song",
+  "name": "Example Song",
+  "bpm": 120,
+  "layers": [
+    {
+      "id": "bass-layer",
+      "type": "FrequencyBars",
+      "trigger": {
+        "source": "audio",
+        "band": "bass"
+      },
+      "params": {
+        "color": "#ff4400",
+        "intensity": 1.0,
+        "speed": 0.5
+      },
+      "blendMode": "Additive"
+    },
+    {
+      "id": "kick-flash",
+      "type": "FlashPlane",
+      "trigger": {
+        "source": "midi",
+        "channel": 1,
+        "note": 36
+      },
+      "params": {
+        "color": "#ffffff",
+        "decay": 0.3
+      },
+      "blendMode": "Screen"
+    }
+  ]
+}
